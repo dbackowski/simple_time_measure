@@ -1,0 +1,20 @@
+PATH
+  remote: .
+  specs:
+    simple_time_measure (1.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (10.5.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.16)
+  rake (~> 10.0)
+  simple_time_measure!
+
+BUNDLED WITH
+   1.16.1
