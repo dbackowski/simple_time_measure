@@ -24,7 +24,37 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+  class DummyClass
+    include SimpleTimeMeasure
+
+    measure_instance_method :test do |result|
+      p "instance method :test #{result}"
+    end
+
+    measure_class_method :test2 do |result|
+      p "class method :test2 #{result}"
+    end
+
+    def test
+      sleep(1)
+      1
+    end
+
+    def self.test2
+      sleep(1)
+      2
+    end
+  end
+
+  DummyClass.new.test
+  "instance method :test {:cpu_time=>60, :wall_time=>1000227, :idle_time=>1000167}"
+  => 1
+
+  DummyClass.test2
+  "class method :test2 {:cpu_time=>61, :wall_time=>1000214, :idle_time=>1000153}"
+  => 2
+```
 
 ## Development
 
@@ -34,7 +64,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/simple_time_measure. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/dbackowski/simple_time_measure. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -42,4 +72,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the SimpleTimeMeasure project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/simple_time_measure/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the SimpleTimeMeasure project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/dbackowski/simple_time_measure/blob/master/CODE_OF_CONDUCT.md).
