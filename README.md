@@ -1,4 +1,4 @@
-# SimpleTimeMeasure
+# SimpleTimeMeasure [![Build Status](https://travis-ci.org/dbackowski/simple_time_measure.svg?branch=master)](https://travis-ci.org/dbackowski/simple_time_measure)
 
 SimpleTimeMeasure is a ruby gem that allows measuring methods without having to alter code of the methods themselves.
 
