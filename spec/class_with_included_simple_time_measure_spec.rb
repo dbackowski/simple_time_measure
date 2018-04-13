@@ -5,14 +5,14 @@ describe 'DummyTestClass that include SimpleTimeMeasure' do
     class DummyTestClass
       include SimpleTimeMeasure
 
-      @@time_measures = {}
+      @time_measures = {}
 
       measure_instance_method :test do |result|
-        @@time_measures[:test] = result
+        @time_measures[:test] = result
       end
 
       measure_class_method :test2 do |result|
-        @@time_measures[:test2] = result
+        @time_measures[:test2] = result
       end
 
       def test
@@ -24,7 +24,7 @@ describe 'DummyTestClass that include SimpleTimeMeasure' do
       end
 
       def self.time_measures
-        @@time_measures
+        @time_measures
       end
     end
 
@@ -32,7 +32,7 @@ describe 'DummyTestClass that include SimpleTimeMeasure' do
   }
 
   describe '#test' do
-    it 'returns 1' do
+    it 'returns 1 and measure time' do
       expect(subject.new.test).to eq 1
       expect(subject.time_measures[:test]).to have_key(:cpu_time)
       expect(subject.time_measures[:test]).to have_key(:wall_time)
@@ -41,7 +41,7 @@ describe 'DummyTestClass that include SimpleTimeMeasure' do
   end
 
   describe '.test2' do
-    it 'returns 2' do
+    it 'returns 2 and measure time' do
       expect(subject.test2).to eq 2
       expect(subject.time_measures[:test2]).to have_key(:cpu_time)
       expect(subject.time_measures[:test2]).to have_key(:wall_time)
